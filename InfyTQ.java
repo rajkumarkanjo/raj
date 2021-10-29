@@ -1,43 +1,39 @@
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+package DSA;
+
+import java.util.*;
 
 public class InfyTQ {
 
-    public static int CntPairs(int N , String S){
-
-        // Step 1 : convert binary to decimal
-      //  int decimal=Integer.parseInt(S,2);
-
-
-        int decimal = 300000;
-        int count = 0 ;
-
-
-        BigDecimal val = new BigDecimal(0);  // Succeeds
-
-        int i = 1;
-        while (i <= decimal ){
-
-            for(int j = 1 ; j <= decimal ; j++){
-
-                    if ((i+j) == (i^j) ){
-
-                       count = count+1;
-                   }
-            }
-            i++;
-        }
-        return  count % (1000000007) ;
-
-    }
-
     public static void main(String[] args) {
 
-        int result = CntPairs(10,"100000000000");
-        System.out.println("number of pairs ="+ result);
+     // find the second largest without sorting the array
 
+        int arr[] = {1,5,3,2};
+
+        // output = 3
+        int first_MAX = arr[0];
+
+        for (int i = 0 ; i < arr.length ; i++ ){
+
+            if (first_MAX < arr[i]){
+                first_MAX = arr[i];
+            }
+        }
+
+// delte the element
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == first_MAX) {
+                arr[i] = -1;
+            }
+        }
+        int second_MAX = arr[0];
+        for (int i = 0 ; i < arr.length ; i++ ){
+
+            if (second_MAX < arr[i]){
+                second_MAX = arr[i];
+            }
+        }
+        System.out.println(second_MAX);
     }
-
 
 }
